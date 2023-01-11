@@ -48,10 +48,17 @@ CREATE TABLE IF NOT EXISTS decanatoPos(
   PRIMARY KEY (id_decanato, id_iglesia)
 );
 
-CREATE TABLE IF NOT EXISTS iglesia(
+CREATE TABLE IF NOT EXISTS iglesiaCab(
 	id VARCHAR(16) NOT NULL PRIMARY KEY,
   id_estado VARCHAR(16) NOT NULL,
   id_municipio VARCHAR(16) NOT NULL,
   nombre VARCHAR(100)not NULL,
   direccion VARCHAR(200) NOT NULL
+);
+
+CREATE table IF NOT EXISTS iglesiaPos(
+  id_iglesia VARCHAR(16) NOT NULL,
+  id_sacerdote VARCHAR(16) NOT NULL,
+  id_trabajoSacerdote VARCHAR(16) NOT NULL,
+  PRIMARY KEY(id_iglesia, id_sacerdote)
 );

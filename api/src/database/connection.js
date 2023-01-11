@@ -1,5 +1,5 @@
-require('dotenv').config();
-const mariadb = require('mysql2');
+require("dotenv").config();
+const mariadb = require("mysql2");
 
 const cxn = mariadb.createConnection({
   host: process.env.DB_HOST,
@@ -10,8 +10,12 @@ const cxn = mariadb.createConnection({
 cxn.query(
   `CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME}`,
   function (err, results) {
+    console.log("resultados");
+    if (err) {
+      console.log(err);
+      return;
+    }
     console.log(results);
-    console.log(err);
   }
 );
 
